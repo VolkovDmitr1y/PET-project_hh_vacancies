@@ -39,34 +39,13 @@ graph TB
 
 📁 Структура проекта
 
+hh_vacancy_parser (парсит данные)
 
-
-hh_vacancy_parser/
-├── dags/
-│   └── vacancy_dag_telegram.py    # Основной DAG Airflow
-├── src/
-│   ├── hh_parser.py              # Функции парсинга HH.ru
-│   ├── database_handler.py       # Работа с SQLite
-│   └── telegram_notifier.py      # Отправка в Telegram
-├── data/
-│   └── vacancy_new.db            # SQLite база данных
-├── config/
-│   ├── settings.py               # Конфигурационные параметры
-│   └── queries.py                # SQL-запросы
-├── tests/
-│   ├── test_parser.py
-│   └── test_database.py
-├── requirements.txt              # Зависимости Python
-├── README.md                     # Эта документация
-└── .env.example                  # Пример переменных окружения
-
-
-
-
-
-
-
-
-
-
-
+I. dags (начало работы дага)
+- vacancy_dag_telegram.py # Основной DAG Airflow
+II src
+- hh_parser.py # Функции парсинга HH.ru
+- database_handler.py # Работа с SQLite
+- telegram_notifier.py      # Отправка в Telegram
+III data
+- vacancy_new.db # SQLite база данных
