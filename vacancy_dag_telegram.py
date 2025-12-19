@@ -155,7 +155,7 @@ def link_data_base(data):
     conn = sqlite3.connect(link)
 
     # ИСПОЛЬЗУЕМ НОВОЕ ИМЯ ТАБЛИЦЫ
-    table_name = 'hh_vacancies_new'  # НОВОЕ ИМЯ ТАБЛИЦЫ
+    table_name = 'hh_vacancies_new'  
 
     try:
         # Читаем существующие данные
@@ -195,8 +195,8 @@ def link_data_base(data):
 def telegram_bot(df):
     import requests
     
-    BOT_TOKEN = "8266760269:AAF9nXvk1a0tXOsWxq4c_nkV2BUa7tYZsOI"
-    CHAT_ID = "1385279550"
+    BOT_TOKEN = "указать токен"
+    CHAT_ID = "id"
     
     # Проверяем, есть ли новые вакансии
     if df.empty:
@@ -366,7 +366,7 @@ with DAG(
     def chek_data_base_load_wrapper(**kwargs):
         ti = kwargs['ti']
         data = ti.xcom_pull(task_ids='task_new_vacancies')
-        return chek_data_base_load(data, '/mnt/d/Data engineer/SQLite/vacancy_new.db', 'hh_vacancies_new')
+        return chek_data_base_load(data, '/mnt/d/Data engineer/SQLite/vacancy_new.db', 'hh_vacancies_new') # директория с файлом для SQLite
 
     task_load_data_to_database = PythonOperator(
         task_id='task_load_data_to_database',
@@ -375,3 +375,4 @@ with DAG(
 
     # Последовательность выполнения
     task_parcing_data >> task_create_Data_Frame >> task_new_vacancies >> task_send_telegram  >> task_load_data_to_database
+
