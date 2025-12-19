@@ -51,3 +51,6 @@ III data
 - vacancy_new.db # SQLite база данных
 
 
+ПРИМЕР выгрузки данных:
+vacancy-1766170906187.csv
+
